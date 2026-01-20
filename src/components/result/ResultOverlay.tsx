@@ -22,6 +22,7 @@ export function ResultOverlay({
   theme,
 }: ResultOverlayProps) {
   const spinAgainRef = useRef<HTMLButtonElement>(null);
+  const newWheelRef = useRef<HTMLButtonElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   // Focus "Spin Again" button when overlay appears
@@ -35,11 +36,35 @@ export function ResultOverlay({
     }
   }, [isVisible]);
 
-  // Handle Escape key
+  // Handle keyboard events including focus trap
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isVisible) {
+      if (!isVisible) return;
+
+      if (e.key === 'Escape') {
         onSpinAgain();
+        return;
+      }
+
+      // Focus trap: cycle between Spin Again and New Wheel buttons
+      if (e.key === 'Tab') {
+        const focusableElements = [spinAgainRef.current, newWheelRef.current].filter(Boolean);
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          // Shift+Tab: if on first element, go to last
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement?.focus();
+          }
+        } else {
+          // Tab: if on last element, go to first
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement?.focus();
+          }
+        }
       }
     },
     [isVisible, onSpinAgain]
@@ -119,6 +144,7 @@ export function ResultOverlay({
                 Spin Again
               </Button>
               <Button
+                ref={newWheelRef}
                 onClick={onNewWheel}
                 variant="secondary"
                 accentColor={theme.accentColor}
