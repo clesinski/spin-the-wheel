@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spin the Wheel
+
+A customizable random choice spinner for games, life decisions, and live streams. Add your options, spin the wheel, and let fate decide.
+
+## Features
+
+- **Fully Customizable** - Add up to 20 items to your wheel
+- **5 Color Themes** - Carnival, Ocean, Sunset, Forest, and Neon
+- **Smooth Animations** - Satisfying spin physics powered by Framer Motion
+- **Mobile Friendly** - Works great on phones, tablets, and desktops
+- **Accessible** - Screen reader support, keyboard navigation, and reduced motion support
+- **No Account Required** - Just open and spin
+
+## Use Cases
+
+- **Games** - Pick the next player, choose a challenge, or randomize teams
+- **Live Streams** - Engage your audience with random giveaways or viewer choices
+- **Decisions** - Can't decide where to eat? Let the wheel choose
+- **Classroom** - Pick students for activities or randomize groups
+- **Parties** - Truth or dare, who goes next, prize wheels
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/clesinski/spin-the-wheel.git
+cd spin-the-wheel
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## How to Use
 
-To learn more about Next.js, take a look at the following resources:
+1. **Add Items** - Type your choices and press Enter or click Add
+2. **Choose a Theme** - Pick a color scheme that fits your vibe
+3. **Spin** - Click the center button and watch it go
+4. **See Results** - The winner is announced with options to spin again or start fresh
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Themes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Theme | Description |
+|-------|-------------|
+| Carnival | Classic red, orange, yellow, green, blue, purple |
+| Ocean | Cool navy, teal, and cyan tones |
+| Sunset | Warm orange, coral, pink, and magenta |
+| Forest | Natural greens from dark to lime |
+| Neon | Bright colors on a dark background |
 
-## Deploy on Vercel
+## Accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Full keyboard navigation
+- Screen reader announcements for spin results
+- Respects `prefers-reduced-motion` for users sensitive to animations
+- Focus indicators on all interactive elements
+- ARIA labels and live regions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- [Next.js 14](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/awesome-feature`)
+3. Commit your changes (`git commit -m 'Add awesome feature'`)
+4. Push to the branch (`git push origin feature/awesome-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Made with Next.js and Framer Motion
